@@ -1,20 +1,10 @@
 # class Drinks
-
-# MONEY = [10, 50, 100, 500, 1000]
-
-#   def initialize
-#     @drinks = {}
-#   end
-
-#   def input_drink(drink_name, price, volume)
-#     @drinks[drink_name] = {price: price, volume: volume, name: drink_name}
-#     pp @drinks
-#   end
-
-#   def output(number)
-#     @drinks[number]
-#   end
-
+  
+#   MONEY = [10, 50, 100, 500, 1000]
+  
+#     def initialize
+      
+#     end
 # end
 
 # # ドリンククラス
