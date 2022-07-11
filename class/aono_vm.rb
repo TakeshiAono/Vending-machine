@@ -1,10 +1,12 @@
 class VendingMachine
+  include Drinks
+  attr_accessor :drinks, :input_money, :seles
 
 MONEY = [10, 50, 100, 500, 1000]
 
   def initialize
     @input_money = 0
-    @drinks = {cola: {price: 120, volume: 5, name: "コーラ"}, water: {price: 100, volume: 5, name: "お水" }, redbull: {price: 200, volume: 5, name: "レッドブル" }}
+    @drinks = {cola: cola,water: water, redbull: redbull}
     @seles = 0
   end
 
@@ -29,20 +31,22 @@ MONEY = [10, 50, 100, 500, 1000]
     end
   end
 
-  def can_buy_cola
-    if @input_money >= @drinks[:cola][:price] && @drinks[:cola][:volume] > 0
-      puts "You get cola!"
-      puts @drinks[:cola][:volume] -= 1
-      @input_money -= @drinks[:cola][:price]
-      seles_sum
+  def can_buy(drink)
+    drink = drink.to_sym
+    if @input_money >= @drinks[drink][:price] && @drinks[drink][:volume] > 0
+      puts "You get #{drink}!"
+      puts @drinks[drink][:volume] -= 1
+      @input_money -= @drinks[drink][:price]
+      seles_sum(drink)
       input_back
     else
       puts "You don't get!"
     end
   end
 
-  def seles_sum
-    @seles += @drinks[:cola][:price]
+  def seles_sum(drink)
+    drink = drink.to_sym
+    @seles += @drinks[drink][:price]
   end
 
   def can_buy_list
