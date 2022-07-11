@@ -47,13 +47,7 @@ MONEY = [10, 50, 100, 500, 1000]
 
   def can_buy_list
     @drinks.each do |drink, info|
-      info.each do |key, value|
-        if key == :price && value <= @input_money
-          if @drinks[drink][:volume] != 0
-            puts drink
-          end
-        end
-      end
+      puts drink if @drinks[drink][:volume] != 0 && @drinks[drink][:price] <= @input_money
     end
   end
 
