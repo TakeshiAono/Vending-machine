@@ -1,5 +1,5 @@
 # 実行手順
-  1. class_examディレクトリに移動する
+  1. Vending-machineディレクトリに移動する
   2. irbを立ち上げる
   3. require_relative "main.rb"コマンドを実行する。
 
