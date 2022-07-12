@@ -11,10 +11,7 @@ MONEY = [10, 50, 100, 500, 1000]
   end
 
   def input_setting(money)#もし投入額が定数じゃなかったら投入額をそのまま返す投入額が定数だったら11行目を実行
-    if MONEY.include?(money)
-    @input_money += money
-    else
-      puts "#{money}円は使えねーよ！"
+      Money.include?(money) @input_money += money : puts "#{money}円は使えねーよ！"
     end
   end
 
