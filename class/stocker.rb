@@ -1,12 +1,12 @@
 class Stocker
   include Drinks
-  attr_accessor :input_money
+  attr_accessor :stocker_input_money
 
   def initialize
     @drinks = {cola: cola,water: water, redbull: redbull}
-    @input_money
+    @stocker_input_money = 0
   end
-
+  
   def can_buy(drink)
     drink = drink.to_sym
     if @input_money >= @drinks[drink][:price] && @drinks[drink][:volume] > 0
@@ -32,9 +32,9 @@ class Stocker
     end
   end
 
-  private
-  def get_input_money
-    #VendingMachineオブジェクトから取得した（与えられるのではなく取得したい）
-  end
+  # private
+  # def get_input_money
+  #   #VendingMachineオブジェクトから取得した（与えられるのではなく取得したい）
+  # end
 
 end

@@ -11,12 +11,14 @@ class VendingMachine
   end
 
   def input_setting(money)#もし投入額が定数じゃなかったら投入額をそのまま返す投入額が定数だったら11行目を実行
-    puts MONEY.include?(money) ? @stocker.input_money = @input_money += money : "#{money}円は使えねーよ！"
+    @input_money += money
+    puts MONEY.include?(money) ? @stocker.stocker_input_money = @input_money : "#{money}円は使えねーよ！"
+    @input_money = 0
   end
 
   def input_back
-    puts @input_money
-    @input_money = 0
+    puts @stocker.stocker_input_money
+    @stocker.stocker_input_money = 0
   end
 
   def seles_sum(drink)
@@ -24,8 +26,11 @@ class VendingMachine
     @seles += @drinks[drink][:price]
   end
 
-  def select_drinks(drink)
+  def user_select_drinks(drink)
+    if @stocker.stocker_input_money.present?
+    @stocker.can_buy_list
     @stocker.can_buy(drink)
+    end
   end
 
   def select_display(option_num)
