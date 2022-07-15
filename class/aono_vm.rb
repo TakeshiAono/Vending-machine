@@ -21,7 +21,7 @@ MONEY = [10, 50, 100, 500, 1000]
 
   def stocks_info
     @drinks.each do |drink, info|
-        puts "商品名:#{drink} 価格:#{info[:price]} 在庫数：#{info[:value]}"
+      puts "商品名:#{drink} 価格:#{info[:price]} 在庫数：#{info[:volume]}"
     end
   end
 
