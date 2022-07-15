@@ -21,9 +21,7 @@ MONEY = [10, 50, 100, 500, 1000]
 
   def stocks_info
     @drinks.each do |drink, info|
-        info.each do |key, value|
-        puts "#{drink}の#{key}は#{value}です"
-      end
+        puts "商品名:#{drink} 価格:#{info[:price]} 在庫数：#{info[:value]}"
     end
   end
 
@@ -47,7 +45,7 @@ MONEY = [10, 50, 100, 500, 1000]
 
   def can_buy_list
     @drinks.each do |drink, info|
-      puts drink if @drinks[drink][:volume] != 0 && @drinks[drink][:price] <= @input_money
+      puts drink if info[:volume] != 0 && info[:price] <= @input_money
     end
   end
 
