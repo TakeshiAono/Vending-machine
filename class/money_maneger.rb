@@ -29,7 +29,6 @@ class MoneyManager
     @seles += @stocker.drinks[drink][:price]
   end
 
-
   private
   def input_confirm
     if VendingMachine::MONEY.include?(@input_money_info)

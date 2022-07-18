@@ -9,7 +9,7 @@ class Stocker
     @can_buy_list = Array.new
     @parent = parent_obj
   end
-  
+
   def buy(drink, money)
     drink = drink.to_sym
     @drinks[drink][:volume] -= 1
