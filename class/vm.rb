@@ -6,13 +6,21 @@ class VendingMachine
   def initialize
     @input_money = 0
     @stocker = Stocker.new
+    @money_maneger = MoneyManager.new(@stocker)
+    @input_info
   end
 
-  def input_setting(money)#もし投入額が定数じゃなかったら投入額をそのまま返す投入額が定数だったら11行目を実行
-    @input_money += money
-    puts MONEY.include?(money) ? @stocker.stocker_input_money += @input_money : "#{money}円は使えねーよ！"
-    @input_money = 0
+  def input(money)
+    @money_maneger.input(money)
   end
+
+
+
+  # def input_setting(money)#もし投入額が定数じゃなかったら投入額をそのまま返す投入額が定数だったら11行目を実行
+  #   @input_money += money
+  #   puts MONEY.include?(money) ? @stocker.stocker_input_money += @input_money : "#{money}円は使えねーよ！"
+  #   @input_money = 0
+  # end
 
   def input_back
     puts @stocker.stocker_input_money
