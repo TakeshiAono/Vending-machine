@@ -1,11 +1,9 @@
 class Stocker
   include Drinks
-  attr_accessor :stocker_input_money, :seles, :drinks, :can_buy_list
+  attr_accessor :drinks, :can_buy_list
 
   def initialize(parent_obj)
     @drinks = {cola: cola,water: water, redbull: redbull}
-    @stocker_input_money = 0
-    @seles = 0
     @can_buy_list = Array.new
     @parent = parent_obj
   end

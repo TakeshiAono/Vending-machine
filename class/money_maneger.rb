@@ -1,10 +1,9 @@
 class MoneyManager
-  attr_accessor :input_money_info, :output_money_info, :seles
+  attr_accessor :input_money_info, :seles
 
   def initialize(parent_obj, stocker_obj)
     @input_money_info
     @input_money
-    @outoput_info
     @seles = 0
     @stocker = stocker_obj
     @parent = parent_obj

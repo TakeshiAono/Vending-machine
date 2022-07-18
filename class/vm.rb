@@ -1,5 +1,5 @@
 class VendingMachine
-  attr_accessor :drinks, :input_money, :seles
+  attr_accessor :input_money
 
   MONEY = [10, 50, 100, 500, 1000]
 
@@ -7,7 +7,6 @@ class VendingMachine
     @input_money = 0
     @stocker = Stocker.new(self)
     @money_maneger = MoneyManager.new(self, @stocker)
-    @input_info
   end
 
   def input(money)
@@ -27,6 +26,7 @@ class VendingMachine
 
   def select_drinks(drink)
     drink = drink.to_sym
+    return puts "その名前のドリンクは販売しておりません" unless @stocker.drinks.key?(drink)
     if @stocker.drinks[drink][:volume] == 0 || @money_maneger.can_buy?(drink, @input_money) == false
       puts "You don't get!"
     else
@@ -52,7 +52,7 @@ class VendingMachine
   
   private
   def seles_check
-    puts "売上#{@money_maneger.seles}"
+    puts "売上#{@money_maneger.seles}円"
   end
 
 end
