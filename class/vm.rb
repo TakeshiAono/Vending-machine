@@ -31,7 +31,7 @@ class VendingMachine
       puts "You don't get!"
     else
     puts "You get #{drink}!"
-    @stocker.buy(drink, @input_money)
+    @stocker.buy(drink)
     @money_maneger.seles_add(drink)
     puts "#{@input_money}円のお返しです"
     @input_money = 0

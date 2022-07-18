@@ -8,7 +8,7 @@ class Stocker
     @parent = parent_obj
   end
 
-  def buy(drink, money)
+  def buy(drink)
     drink = drink.to_sym
     @drinks[drink][:volume] -= 1
     @parent.input_money -= @drinks[drink][:price]
