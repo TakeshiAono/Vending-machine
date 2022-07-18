@@ -1,25 +1,19 @@
 class Stocker
   include Drinks
-  attr_accessor :stocker_input_money, :seles
+  attr_accessor :stocker_input_money, :seles, :drinks, :can_buy_list
 
-  def initialize
+  def initialize(parent_obj)
     @drinks = {cola: cola,water: water, redbull: redbull}
     @stocker_input_money = 0
     @seles = 0
+    @can_buy_list = Array.new
+    @parent = parent_obj
   end
   
-  def can_buy(drink)
+  def buy(drink, money)
     drink = drink.to_sym
-    if @stocker_input_money >= @drinks[drink][:price] && @drinks[drink][:volume] > 0
-      puts "You get #{drink}!"
-      puts @drinks[drink][:volume] -= 1
-      @stocker_input_money -= @drinks[drink][:price]
-      seles_sum(drink)
-      puts @stocker_input_money
-      @stocker_input_money = 0
-    else
-      puts "You don't get!"
-    end
+    @drinks[drink][:volume] -= 1
+    @parent.input_money -= @drinks[drink][:price]
   end
 
   def stocks_info
@@ -28,15 +22,12 @@ class Stocker
     end
   end
 
-  def can_buy_list
+  def can_buy_list_up
+    @can_buy_list.clear
     @drinks.each do |drink, info|
-      puts drink if info[:volume] != 0 && info[:price] <= @stocker_input_money
+      @can_buy_list << drink.to_s if info[:volume] != 0 && info[:price] <= @parent.input_money
     end
-  end
-
-  def seles_sum(drink)
-    drink = drink.to_sym
-    @seles += @drinks[drink][:price]
+    return
   end
 
 end
