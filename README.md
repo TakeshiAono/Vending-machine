@@ -6,7 +6,7 @@
       （例: dydo = VendingMachine.new)
   5. dydo.input_setting(money)で自動販売機にお金を投入する。
       （moneyは10円、50円、100円、500円、1000円のみを受け付ける）
-  - 投入金額を返却したいときはdydo.seles_checkメソッド
+  - 投入金額を返却したいときはdydo.input_backメソッド
   - ドリンクを購入したいときはuser_select_drinks(drink)を使う
       （例：user_select_drinks("cola")）
   - select_display(1)で在庫を確認できる。
